@@ -11,7 +11,7 @@ const DashboardPage = () => {
   const [user, setUser] = useState<User | null>(null)
   const [loading, setLoading] = useState(true)
   const router = useRouter()
-
+  console.log(!!user?.picture.medium)
   useEffect(() => {
     const storedUser = localStorage.getItem("user")
 
@@ -58,14 +58,20 @@ const DashboardPage = () => {
           <div className={styles.logo}>
             <h2>Dashboard</h2>
           </div>
+
           <div className={styles.userInfo}>
-            <Image
-              src={user.picture.medium}
-              alt="Profile"
-              className={styles.avatar}
-              width={48}
-              height={48}
-            />
+            {!!user.picture.medium ? (
+              <Image
+                src={user.picture.medium}
+                alt="Profile"
+                className={styles.avatar}
+                width={48}
+                height={48}
+              />
+            ) : (
+              <span className={styles.avatarPlaceholder}></span>
+            )}
+
             <div className={styles.userDetails}>
               <div className={styles.userName}>
                 {user.name.first} {user.name.last}
