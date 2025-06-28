@@ -1,0 +1,241 @@
+.dashboardContainer {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+
+  .loadingWrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    gap: 1rem;
+
+    .spinner {
+      width: 2rem;
+      height: 2rem;
+      border: 3px solid #e5e7eb;
+      border-top: 3px solid #3b82f6;
+      border-radius: 50%;
+      animation: spin 1s linear infinite;
+    }
+
+    p {
+      color: #6b7280;
+      font-size: 1rem;
+    }
+  }
+
+  .header {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    padding: 1rem 2rem;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+
+    .headerContent {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      .logo {
+        h2 {
+          font-size: 1.75rem;
+          font-weight: 700;
+          color: #1f2937;
+          margin: 0;
+          background: linear-gradient(135deg, #667eea, #764ba2);
+          background-clip: text;
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
+        }
+      }
+
+      .userInfo {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+
+        .avatar {
+          width: 3rem;
+          height: 3rem;
+          border-radius: 50%;
+          border: 3px solid #e5e7eb;
+          box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .userDetails {
+          display: flex;
+          flex-direction: column;
+
+          .userName {
+            font-size: 0.875rem;
+            font-weight: 600;
+            color: #1f2937;
+          }
+
+          .userEmail {
+            font-size: 0.75rem;
+            color: #6b7280;
+          }
+        }
+      }
+    }
+  }
+
+  .main {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+
+    .welcomeCard {
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: 1.5rem;
+      padding: 2.5rem;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+
+      .welcomeHeader {
+        text-align: center;
+        margin-bottom: 3rem;
+
+        .welcomeTitle {
+          font-size: 3rem;
+          font-weight: 700;
+          color: #1f2937;
+          margin-bottom: 1rem;
+          background: linear-gradient(135deg, #667eea, #764ba2);
+          background-clip: text;
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
+        }
+
+        .welcomeMessage {
+          font-size: 1.25rem;
+          color: #6b7280;
+          line-height: 1.6;
+        }
+      }
+
+      .userGrid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 1.5rem;
+
+        .infoCard {
+          background: #f9fafb;
+          border: 1px solid #e5e7eb;
+          border-radius: 1rem;
+          padding: 1.5rem;
+          transition: all 0.2s ease-in-out;
+
+          &:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+          }
+
+          h3 {
+            font-size: 1.125rem;
+            font-weight: 600;
+            color: #1f2937;
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid #e5e7eb;
+          }
+
+          .infoItem {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.75rem 0;
+            border-bottom: 1px solid #f3f4f6;
+
+            &:last-child {
+              border-bottom: none;
+            }
+
+            .label {
+              font-size: 0.875rem;
+              font-weight: 500;
+              color: #6b7280;
+            }
+
+            .value {
+              font-size: 0.875rem;
+              font-weight: 600;
+              color: #1f2937;
+              text-align: right;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (max-width: 768px) {
+  .dashboardContainer {
+    .header {
+      padding: 1rem;
+
+      .headerContent {
+        .logo h2 {
+          font-size: 1.5rem;
+        }
+
+        .userInfo {
+          .userDetails {
+            display: none;
+          }
+        }
+      }
+    }
+
+    .main {
+      padding: 1rem;
+
+      .welcomeCard {
+        padding: 1.5rem;
+
+        .welcomeHeader {
+          margin-bottom: 2rem;
+
+          .welcomeTitle {
+            font-size: 2rem;
+          }
+
+          .welcomeMessage {
+            font-size: 1rem;
+          }
+        }
+
+        .userGrid {
+          grid-template-columns: 1fr;
+          gap: 1rem;
+
+          .infoCard {
+            padding: 1rem;
+
+            .infoItem {
+              flex-direction: column;
+              align-items: flex-start;
+              gap: 0.25rem;
+
+              .value {
+                text-align: left;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

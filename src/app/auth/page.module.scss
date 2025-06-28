@@ -1,0 +1,91 @@
+.authContainer {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  padding: 1rem;
+
+  .authCard {
+    width: 100%;
+    max-width: 420px;
+    padding: 2.5rem;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 1.5rem;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+
+    .header {
+      text-align: center;
+      margin-bottom: 2rem;
+
+      .title {
+        font-size: 2.25rem;
+        font-weight: 700;
+        color: #1f2937;
+        margin-bottom: 0.5rem;
+        background: linear-gradient(135deg, #667eea, #764ba2);
+        background-clip: text;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+
+      .subtitle {
+        font-size: 1rem;
+        color: #6b7280;
+        line-height: 1.5;
+      }
+    }
+
+    .form {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+
+      .inputGroup {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+      }
+
+      .phoneHelper {
+        font-size: 0.75rem;
+        color: #6b7280;
+        margin-top: 0.25rem;
+        text-align: center;
+        background: #f9fafb;
+        padding: 0.5rem;
+        border-radius: 0.5rem;
+        border: 1px solid #e5e7eb;
+      }
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .authContainer {
+    padding: 0.5rem;
+
+    .authCard {
+      padding: 2rem;
+      border-radius: 1.25rem;
+
+      .header {
+        margin-bottom: 1.5rem;
+
+        .title {
+          font-size: 2rem;
+        }
+
+        .subtitle {
+          font-size: 0.875rem;
+        }
+      }
+
+      .form {
+        gap: 1.25rem;
+      }
+    }
+  }
+}
