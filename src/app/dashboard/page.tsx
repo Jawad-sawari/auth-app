@@ -1,7 +1,7 @@
 "use client"
 
 import React, { useState, useEffect } from "react"
-import { useRouter, redirect } from "next/navigation"
+import { useRouter } from "next/navigation"
 import Button from "../../components/Button/Button"
 import { User } from "../../types/user"
 import styles from "./page.module.scss"
@@ -16,7 +16,7 @@ const DashboardPage = () => {
     const storedUser = localStorage.getItem("user")
 
     if (!storedUser) {
-      return redirect("/auth")
+      return router.push("/auth")
     }
 
     try {
@@ -25,7 +25,7 @@ const DashboardPage = () => {
     } catch (error) {
       console.error("Error parsing user data:", error)
       localStorage.removeItem("user")
-      redirect("/auth")
+      router.push("/auth")
     } finally {
       setLoading(false)
     }
@@ -33,7 +33,7 @@ const DashboardPage = () => {
 
   const handleLogout = () => {
     localStorage.removeItem("user")
-    redirect("/auth")
+    router.push("/auth")
   }
 
   if (loading) {

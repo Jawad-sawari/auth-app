@@ -1,6 +1,6 @@
 "use client"
 import React, { useState, useEffect } from "react"
-import { redirect, useRouter } from "next/navigation"
+import { useRouter } from "next/navigation"
 import Input from "../../components/Input/Input"
 import Button from "../../components/Button/Button"
 import { User, ApiResponse } from "../../types/user"
@@ -16,8 +16,7 @@ const AuthPage = () => {
   useEffect(() => {
     const user = localStorage.getItem("user")
     if (user) {
-      //   router.push("/dashboard")
-      redirect("/dashboard")
+      router.push("/dashboard")
     }
   }, [router])
 
