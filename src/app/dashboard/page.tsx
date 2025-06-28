@@ -11,7 +11,6 @@ const DashboardPage = () => {
   const [user, setUser] = useState<User | null>(null)
   const [loading, setLoading] = useState(true)
   const router = useRouter()
-  console.log(!!user?.picture.medium)
   useEffect(() => {
     const storedUser = localStorage.getItem("user")
 
